@@ -1,9 +1,4 @@
 
-:root {
-  --primary: #EAEAEA;
-  --secondary :  #72788D
-}
-
 *, *::before, *::after {
   box-sizing: border-box;
 }
