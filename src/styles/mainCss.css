@@ -3,15 +3,20 @@
   --secondary :  #f64adf
 }
 
+.nav p.active,
+.nav svg.active{
+  font-weight: bold;
+  color: #75FF00;
+}
+
 
 .navWrapper{
-position: absolute;
+position: fixed;
 
  width: 90vw;
  margin-left: 5vw;
  height: 70px;
  color: var(--secondary);
- /* background-color: #8b0000; */
  
  border: 1px solid var(--secondary);
  background-color: var(--primary);
@@ -24,6 +29,10 @@ position: absolute;
  margin-top: 10px;
 
  border-radius: 15px;
+
+ transition: 0.5s ease;
+
+ z-index: 1;
 }
 
 .nav{
@@ -41,15 +50,20 @@ position: absolute;
   font-size: 19px;
 }
 
+.navElement div p{
+  transition: 0.5s ease;
+}
+
 .firstContent{
   width: 100%;
+  height: 1000px;
   display: flex;
   flex-direction: row;
   justify-content: space-evenly;
   align-items: center;
 
   background-color: var(--primary);
-  transition: 1s ease;
+  transition: 0.5s ease;
 }
 
 .firstContent__description{
@@ -64,11 +78,13 @@ position: absolute;
   height:50px; 
   display: flex; 
   align-items: center; 
-  margin: 15px 0 
+  margin: 15px 0; 
 }
 
 .firstContent__description__movingText div p{
   font-size: 40px;
+  font-weight: bold;
+  color: #75FF00;
 }
 
 .firstContent__description p {
@@ -77,11 +93,6 @@ position: absolute;
   color: var(--secondary);
 }
 
-.secondContent{
-  height: 500px;
-  background-color: var(--secondary);
-  transition: 1s ease;
-}
 
 .navElement__clickable button{
   background-color: transparent;
@@ -95,3 +106,137 @@ position: absolute;
 .navElement__clickable button svg{
   color: var(--secondary);
 }
+
+.navElement__clickableHouse{
+  background-color: transparent;
+  border: 1px solid var(--secondary);
+  font-size: 25px;
+  padding: 10px;
+  border-radius: 30px;
+  cursor: pointer;
+
+}
+
+.navElement__clickableHouse svg{
+  transition: color 0.2s ease-in;
+}
+
+.about{
+  width: 100%;
+  background-color: var(--secondary);
+  transition: 0.5s ease;
+
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-around;
+  padding: 10px 0 10px;
+}
+
+.about__pozaFlex{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 50px;
+}
+
+.about__pozaFlex__imageDiv{
+  position: relative;
+}
+
+.imageIcons{
+  position: absolute;
+  bottom: 0; /* Default position for the icons */
+  left: 50%;
+  transform: translateX(-50%);
+  display: flex;
+  gap: 10px;
+}
+
+.icon{
+  position: relative;
+  background-color: transparent;
+  border: none;
+  cursor: pointer;
+  
+  background-color: #75FF00;
+  border-radius: 30px;
+  
+  transition: 1s ease;
+}
+
+
+.icon:nth-of-type(1){
+  bottom: -10px;
+}
+.icon:nth-of-type(2){
+  bottom: -20px;
+}
+.icon:nth-of-type(3){
+  bottom: -10px;
+}
+
+
+.icon:hover{
+  bottom: 5px;
+  background-color: black; 
+}
+
+.icon svg{
+  width: 40px;
+  height: 40px;
+  padding: 5px;
+  color: white;
+}
+
+.about__pozaFlexMovingText{
+  height: 20px; 
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+.about__pozaFlexMovingText div p{
+  font-size: 20px;
+}
+
+.about__pozaFlex div:nth-of-type(3) p{
+  font-size: 35px;
+}
+
+.about__biography{
+  display: flex;
+  flex-direction: column;
+  gap: 25px;
+}
+
+.about__biography__biography{
+  width: 800px;
+}
+
+.about__biography__informations{
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+}
+
+.resume{
+  height: 500px;
+  background-color: var(--primary);
+  transition: 0.5s ease;
+}
+
+.work{
+  height: 500px;
+  background-color: var(--secondary);
+  transition: 0.5s ease;
+}
+
+.contact{
+  height: 700px;
+  background-color: var(--primary);
+  transition: 0.5s ease;
+}
+
