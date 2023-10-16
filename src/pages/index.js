@@ -141,6 +141,7 @@ export default function Home() {
     slidesToScroll: 1,
     centerMode: true,
     centerPadding: '0', // No padding on the sides of the centered slide
+    arrows:false
   };
 
   const handleNext = () => {
