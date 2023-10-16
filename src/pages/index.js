@@ -1,9 +1,10 @@
 import { PiHouseFill } from 'react-icons/pi'
 import {BsLightbulbFill, BsLightbulb} from 'react-icons/bs'
+import {AiOutlineArrowRight, AiOutlineArrowLeft} from 'react-icons/ai'
 import Image from 'next/image' 
 import photo from '../publicResources/pozaGf.svg'
 import pozaCerc from '../publicResources/Asset1.svg'
-import { useEffect, useState } from 'react'
+import { useEffect, useRef, useState } from 'react'
 import { motion, AnimatePresence } from 'framer-motion'
 import {AiOutlineInstagram, AiFillLinkedin} from 'react-icons/ai' 
 import {FaTiktok} from 'react-icons/fa' 
@@ -119,6 +120,14 @@ export default function Home() {
     setIsServer(false);
   }, []);
 
+  const sliderRef = useRef(null);
+
+  useEffect(() => {
+    // This ensures that the slider starts with the first slide
+    
+    sliderRef.current.slickGoTo(0);
+  }, []);
+  
   const videos = [
     { url: video1 },
     { url: video2 },
@@ -130,9 +139,18 @@ export default function Home() {
     infinite: true,
     slidesToShow: 1,
     slidesToScroll: 1,
-    variableWidth: true,
     centerMode: true,
+    centerPadding: '0', // No padding on the sides of the centered slide
   };
+
+  const handleNext = () => {
+    sliderRef.current.slickNext();
+  };
+
+  const handlePrev = () => {
+    sliderRef.current.slickPrev();
+  };
+  
 
   return (
     <>
@@ -280,14 +298,23 @@ export default function Home() {
           <h1>My Work.</h1>
           <span>*all the footage is recorded and edited by me*</span>
         </div>
-
-        <Slider {...settings}>
+<div className='sliderContainer'>
+        <Slider ref={sliderRef} {...settings} className='slider'>
       {videos.map((video, index) => (
-        <div key={index}>
-          {!isServer && <ReactPlayer url={video.url} controls={true} width="500px" height="500px" />}
+        <div key={index} className='slide'>
+          <div className='videoWrapper'>
+            <video controls width="400" height="400" className='video'>
+              <source src={video.url} type="video/mp4" />
+            </video>
+          </div>
         </div>
       ))}
     </Slider>
+    <div className='controls'>
+        <button onClick={handlePrev}><AiOutlineArrowLeft/></button>
+        <button onClick={handleNext}><AiOutlineArrowRight/></button>
+      </div>
+</div>
 
       </section>
 
