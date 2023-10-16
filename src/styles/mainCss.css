@@ -222,21 +222,102 @@ position: fixed;
   justify-content: space-between;
 }
 
+.about__biography__informations div p span{
+  color: white;
+  font-weight: bold;
+}
+
+.freelanceAnchor{
+  cursor: pointer;
+  text-decoration: underline;
+}
+
 .resume{
   height: 500px;
-  background-color: var(--primary);
   transition: 0.5s ease;
+  background-color: var(--secondary);
 }
 
 .work{
-  height: 500px;
-  background-color: var(--secondary);
+  background-color: var(--primary);
   transition: 0.5s ease;
 }
 
 .contact{
-  height: 700px;
+  height: 100%;
   background-color: var(--primary);
   transition: 0.5s ease;
 }
 
+.workHeader{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  color: var(--secondary);
+  font-weight: bold;
+}
+
+.workHeader h1{
+  font-size: 2vw;
+}
+
+.workHeader span{
+  font-size: 1vw;
+}
+
+
+
+
+@media (max-width: 1200px){
+  .navWrapper{
+    display: none;
+  }
+
+  .firstContent{
+    flex-direction: column;
+    justify-content: center;
+    height: 100%;
+    padding: 50px 0 0;
+  }
+
+  .firstContent__description__movingText div p{
+    font-size: 2rem;
+  }
+  
+  .firstContent__description p {
+    width: 100%;
+    font-size: 1.5rem;
+    text-align: center;
+    max-width: 500px;
+  }
+
+  .about{
+    flex-direction: column;  
+  }
+
+  .about__biography__biography{
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    padding: 0 5px;
+  }
+
+  .about__biography__informations{
+    flex-direction: column;
+    width: 100%;
+    gap: 10px;
+    text-align: center;
+  }
+
+  .workHeader h1{
+    font-size: 5vw;
+  }
+
+  .workHeader span{
+    font-size: 2vw;
+  }
+
+  
+}

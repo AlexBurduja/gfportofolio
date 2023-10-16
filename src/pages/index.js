@@ -7,6 +7,17 @@ import { useEffect, useState } from 'react'
 import { motion, AnimatePresence } from 'framer-motion'
 import {AiOutlineInstagram, AiFillLinkedin} from 'react-icons/ai' 
 import {FaTiktok} from 'react-icons/fa' 
+import Link from 'next/link'
+import Slider from 'react-slick'
+import dynamic from 'next/dynamic';
+
+const ReactPlayer = dynamic(() => import('react-player'), { ssr: false });
+import video1 from '../../public/video1.mp4'
+import video2 from '../../public/video2.mp4'
+import video3 from '../../public/video3.mp4'
+
+import "slick-carousel/slick/slick.css";
+import "slick-carousel/slick/slick-theme.css";
 
 export default function Home() {
 
@@ -81,11 +92,11 @@ export default function Home() {
   
         if (currentPosition >= homeBottom && currentPosition < aboutBottom) {
           setActiveSection('about');
-        } else if (currentPosition >= aboutBottom && currentPosition < resumeBottom) {
-          setActiveSection('resume');
-        } else if (currentPosition >= resumeBottom && currentPosition < workBottom) {
+        } else if (currentPosition >= aboutBottom && currentPosition < workBottom) {
           setActiveSection('work');
-        } else if (currentPosition >= workBottom && currentPosition < contactBottom) {
+        } else if (currentPosition >= workBottom && currentPosition < resumeBottom) {
+          setActiveSection('resume');
+        } else if (currentPosition >= resumeBottom && currentPosition < contactBottom) {
           setActiveSection('contact');
         } else {
           setActiveSection('home');
@@ -101,6 +112,27 @@ export default function Home() {
     };
   }, [activeSection]);
   
+
+  const [isServer, setIsServer] = useState(true);
+
+  useEffect(() => {
+    setIsServer(false);
+  }, []);
+
+  const videos = [
+    { url: video1 },
+    { url: video2 },
+    { url: video3 }
+    // Add more videos as needed
+  ];
+
+  const settings = {
+    infinite: true,
+    slidesToShow: 1,
+    slidesToScroll: 1,
+    variableWidth: true,
+    centerMode: true,
+  };
 
   return (
     <>
@@ -224,17 +256,17 @@ export default function Home() {
 
           <div className='about__biography__informations'>
             <div>
-              <p>Name: Grigorescu Carla</p>
-              <p>Birthday:  28.04.2004</p>
-              <p>Age: 19 years</p>
-              <p>Address: Bucharest, Romania</p>
+              <p><span>Name:</span> Grigorescu Carla</p>
+              <p><span>Birthday:</span> 28.04.2004</p>
+              <p><span>Age:</span> 19 years</p>
+              <p><span>Address:</span> Bucharest, Romania</p>
             </div>
 
             <div>
-              <p>Email: carla.grigorescu@yahoo.com</p>
-              <p>Phone: +40773359168</p>
-              <p>Tiktok: </p>
-              <p>Freelance: Available</p>
+              <p><span>Email:</span> carla.grigorescu@yahoo.com</p>
+              <p><span>Phone:</span> +40773359168</p>
+              <p><span>Tiktok:</span> <Link href={'https://www.tiktok.com/@carlagrigorescu2'} target='_blank'>Click here!</Link></p>
+              <p><span>Freelance:</span> <a onClick={() => scrollToTop('contact')} className='freelanceAnchor'>Available</a></p>
             </div>
           </div>
 
@@ -243,13 +275,26 @@ export default function Home() {
 
       </section>
       
+      <section className='work' id='work'>
+        <div className='workHeader'>
+          <h1>My Work.</h1>
+          <span>*all the footage is recorded and edited by me*</span>
+        </div>
+
+        <Slider {...settings}>
+      {videos.map((video, index) => (
+        <div key={index}>
+          {!isServer && <ReactPlayer url={video.url} controls={true} width="500px" height="500px" />}
+        </div>
+      ))}
+    </Slider>
+
+      </section>
+
       <section className='resume' id='resume'>
         
       </section>
       
-      <section className='work' id='work'>
-        
-      </section>
 
       <section className='contact' id='contact'>
         
