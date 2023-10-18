@@ -16,7 +16,7 @@ module.exports = {
     });
 
     config.module.rules.push({
-      test: /\.mp4$/i,
+      test: /\.mov$/i,
       use: [
         {
           loader: 'file-loader',

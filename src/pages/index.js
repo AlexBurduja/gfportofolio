@@ -15,12 +15,12 @@ import Slider from 'react-slick'
 import dynamic from 'next/dynamic';
 
 const ReactPlayer = dynamic(() => import('react-player'), { ssr: false });
-import video1 from '../../public/video1.mp4'
-import video2 from '../../public/video2.mp4'
-import video3 from '../../public/video3.mp4'
-import video4 from '../../public/video4.mp4'
-import video5 from '../../public/video5.mp4'
-import video6 from '../../public/video6.mp4'
+import video1 from '../../public/video1.mov'
+import video2 from '../../public/video2.mov'
+import video3 from '../../public/video3.mov'
+import video4 from '../../public/video4.mov'
+import video5 from '../../public/video5.mov'
+import video6 from '../../public/video6.mov'
 
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
