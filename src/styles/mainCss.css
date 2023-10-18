@@ -420,7 +420,7 @@ div.slick-track{
   display: flex;
   justify-content: space-around;
   gap: 20px;
-  padding: 20px 0;
+  padding: 80px 0;
 }
 
 .inTouchFlex__anchors{
@@ -573,8 +573,185 @@ font-size: 1em;
   transition: 0.5s ease-in;
 }
 
+.hamburger-menu__content .aLink{
+  background-color: #75FF00;
+  color: var(--primary);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 60px;
+  height: 60px;
+  font-weight: bold;
+  font-size: 30px;
+  font-style: inherit;
+}
+
+.hamburger-menu {
+    display: none;
+    position: fixed;
+    bottom: 10px;
+    right: 10px;
+    background-color: var(--primary);
+    border-radius: 50%;
+    width: 60px;
+    height: 60px;
+    z-index: 1;
+  }
+  
+  .hamburger-menu__button {
+    background: none;
+    border: none;
+    cursor: pointer;
+    padding: 20px;
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    height: 100%;
+  }
+  
+  .hamburger-menu__line {
+    background: white;
+    display: block;
+    height: 3px;
+    margin-bottom: 5px;
+    transition: transform 0.2s ease-out, opacity 0.2s ease-out;
+    width: 25px;
+  }
+  
+  .hamburger-menu__line:last-child {
+    margin-bottom: 0;
+  }
+  
+  .hamburger-menu__button.open .hamburger-menu__line:first-child {
+    transform: rotate(45deg) translate(5px, 5px);
+  }
+  
+  .hamburger-menu__button.open .hamburger-menu__line:nth-child(2) {
+    opacity: 0;
+  }
+  
+  .hamburger-menu__button.open .hamburger-menu__line:last-child {
+    transform: rotate(-45deg) translate(6px, -6px);
+  }
+  
+  .hamburger-menu__content {
+    background-color: var(--primary);
+    bottom: 0;
+    left: 0;
+    position: fixed;
+    top: 0;
+    width: 60px;
+    z-index: 1;
+    opacity: 0;
+    border-right: 1px solid black;
+    transform: translateX(-100%);
+    transition: opacity 0.2s ease-out, transform 0.2s ease-out, background-color 0.5s ease;
+  }
+  
+  .hamburger-menu__content.open {
+    opacity: 1;
+    transform: translateX(0%);
+  }
+  
+  .hamburger-menu__content ul {
+    list-style-type: none;
+    margin: 0;
+    padding-top: 25px;
+    /* display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center; */
+  }
+  
+  .hamburger-menu__content li {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    width: 100%;
+    height: 60px;
+    border-bottom: 1px solid grey;
+
+  }
+
+  .hamburger-menu__content li:last-of-type{
+  border-bottom: none;
+  }
+
+  .hamburger-menu__content li:current{
+    color: #75FF00;
+  }
+
+  .navActiveMobile{
+    color: #75FF00;
+  }
+
+  .hamburger-menu__content button{
+    position: absolute;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: transparent;
+    border: 1px solid black;
+    padding: 5px 5px;
+    border-radius: 50%;
+    width: 40px;
+    height: 40px;
+    border-color: var(--secondary);
+    cursor: pointer;
+    bottom: 20px;
+    left: 50%;
+    transform: translateX(-50%);
+  }
+  
+  .hamburger-menu__content a {
+    color: var(--secondary);
+    font-size: 30px;
+    text-decoration: none;
+  }
+
+  svg.active {
+    color: #75FF00;
+  }
+
+  a.notActive {
+    color: var(--secondary);
+    transition: 0.5s ease-out;
+  }
+
+  a.activeLi {
+    color: #75FF00;
+    transition: 0.5s ease-in-out;
+  }
+
+  svg.notActive {
+    color: var(--secondary);
+    transition: 0.5s ease-out;
+  }
+
+  svg.activeLiMobile {
+    color: var(#75FF00);
+    transition: 0.5s ease-in-out;
+  }
+
+  a.activeLiMobile {
+    color: #75FF00;
+  }
+
+  .bulbHamburger{
+    color: var(--secondary);
+  }
+
 @media (max-width: 1200px){
-  .navWrapper{
+  .hamburger-menu{
+    display: block;
+  }
+
+  .navWrapper{  
     display: none;
   }
 
@@ -619,10 +796,6 @@ font-size: 1em;
     font-size: 5vw;
   }
 
-  .resumeHeader h1{
-    font-size: 5vw;
-  }
-
   .workHeader span{
     font-size: 2vw;
   }
@@ -630,10 +803,17 @@ font-size: 1em;
   .resumeHeader{
     color: var(--primary);
     font-weight: bold;
-    font-size: 2vw;
-    padding: 10px 0;
+    font-size: 6vw;
     width: 100%;
+    text-align: center;
+    padding: 20px 0;
+
+    display: flex;
+    justify-content: center;
+    
   }
+
+
 
   .resumeFlex__education{
     display: flex;
@@ -676,4 +856,10 @@ font-size: 1em;
   .inTouchFlex__anchors__anchor svg{
     font-size: clamp(1.5rem, 6vw, 2.5rem);
   }
+
+  .contactHeader h1{
+    font-size: 6vw;
+    text-align: center;
+  }
+
 }

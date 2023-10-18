@@ -1,5 +1,5 @@
 import { PiHouseFill } from 'react-icons/pi'
-import {BsLightbulbFill, BsLightbulb, BsFillPinMapFill} from 'react-icons/bs'
+import {BsLightbulbFill, BsLightbulb, BsFillPinMapFill, BsTelephoneOutboundFill} from 'react-icons/bs'
 import {AiOutlineArrowRight, AiOutlineArrowLeft} from 'react-icons/ai'
 import Image from 'next/image' 
 import photo from '../publicResources/pozaGf.svg'
@@ -8,8 +8,8 @@ import { useEffect, useRef, useState } from 'react'
 import { motion, AnimatePresence } from 'framer-motion'
 import {AiOutlineInstagram, AiFillLinkedin} from 'react-icons/ai'
 import {FiMail} from 'react-icons/fi' 
-import {BiPhoneCall} from 'react-icons/bi' 
-import {FaTiktok} from 'react-icons/fa' 
+import {BiPhoneCall, BiSpreadsheet, BiUser} from 'react-icons/bi' 
+import {FaSuitcase, FaTiktok} from 'react-icons/fa' 
 import Link from 'next/link'
 import Slider from 'react-slick'
 import dynamic from 'next/dynamic';
@@ -86,8 +86,10 @@ export default function Home() {
       const resumeSection = document.getElementById('resume');
       const workSection = document.getElementById('work');
       const contactSection = document.getElementById('contact');
-      const currentPosition = window.scrollY;
+      const currentPosition = window.scrollY + 10;
 
+      console.log(currentPosition)
+      console.log(aboutSection.offsetTop + aboutSection.offsetHeight)
 
       if (homeSection && aboutSection && resumeSection && workSection && contactSection) {
         const homeBottom = homeSection.offsetTop + homeSection.offsetHeight;
@@ -169,7 +171,7 @@ export default function Home() {
 
   const variants = {
     visible : {opacity: 1, x:0},
-    hidden : {opacity: 0, x: 50},
+    hidden : {opacity: 0, x: 0},
   };
 
   const { ref: ref1, inView: inView1 } = useInView({
@@ -207,9 +209,36 @@ export default function Home() {
     }, 'nbISCJZ6t9bgrOD1f')
   }
 
+  const [isOpen, setIsOpen] = useState(false);
+
+  const handleClick = () => {
+    setIsOpen(!isOpen);
+    
+  };
+
   return (
     <>
     <section className='wholeSite'>
+      
+    <div className="hamburger-menu">
+      <button className={`hamburger-menu__button ${isOpen ? 'open' : ''}`} onClick={handleClick}>
+        <span className="hamburger-menu__line"></span>
+        <span className="hamburger-menu__line"></span>
+        <span className="hamburger-menu__line"></span>
+      </button>
+      <div className={`hamburger-menu__content ${isOpen ? 'open' : ''}`}>
+        <Link href='/' className='aLink'>CG</Link>
+        <ul>
+          <li><Link href="#" onClick={() => scrollToTop('home')}><PiHouseFill className={activeSection === 'home' ? 'navActiveMobile' : ''} /></Link></li>
+          <li><Link href="#about" onClick={() => scrollToTop('about')}><BiUser className={activeSection === 'about' ? 'navActiveMobile' : ''}/></Link></li>
+          <li><Link href="#work" onClick={() => scrollToTop('work')}><BiSpreadsheet className={activeSection === 'work' ? 'navActiveMobile' : ''}/></Link></li>
+          <li><Link href="#resume" onClick={() => scrollToTop('resume')}><FaSuitcase className={activeSection === 'resume' ? 'navActiveMobile' : ''}/></Link></li>
+          <li><Link href="#contact" onClick={() => scrollToTop('contact')}><BsTelephoneOutboundFill className={activeSection === 'contact' ? 'navActiveMobile' : ''} /></Link></li>
+          <button className='bulbHamburger' onClick={changeBulb}>{bulb ? <BsLightbulb /> : <BsLightbulbFill/>}</button>
+        </ul>
+      </div>
+    </div>
+
       <section className='navWrapper'>
         <div className='nav'>
           <div className='navElement'>
@@ -566,9 +595,7 @@ export default function Home() {
             </div>
 
             </div>
-
-        </div>
-
+        </div>  
 
       </section>
       </section>
