@@ -321,9 +321,9 @@ export default function Home() {
           <div className='about__pozaFlex__imageDiv'>
            <Image src={pozaCerc} width={350} height={350} alt='pozaGfCerc'/>
             <div className='imageIcons'>
-              <button className='icon'><AiOutlineInstagram/></button>
-              <button className='icon'><AiFillLinkedin /></button>
-              <button className='icon'><FaTiktok /></button>
+              <Link href={'https://www.instagram.com/carla_grigorescu2'} target='_blank' className='icon'><AiOutlineInstagram/></Link>
+              <Link href={'https://www.linkedin.com/in/carla-grigorescu-75a856286/'} target='_blank' className='icon'><AiFillLinkedin /></Link>
+              <Link href={'https://www.tiktok.com/@carlagrigorescu2'} target='_blank' className='icon'><FaTiktok /></Link>
             </div>
           
           </div>
