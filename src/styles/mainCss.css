@@ -231,20 +231,7 @@ position: fixed;
   cursor: pointer;
   text-decoration: underline;
 }
-
-.resume{
-  height: 500px;
-  transition: 0.5s ease;
-  background-color: var(--secondary);
-}
-
 .work{
-  background-color: var(--primary);
-  transition: 0.5s ease;
-}
-
-.contact{
-  height: 100%;
   background-color: var(--primary);
   transition: 0.5s ease;
 }
@@ -321,6 +308,110 @@ div.slick-track{
   border-radius: 20px;
 }
 
+.resume{
+  height: 100%;
+  transition: 0.5s ease;
+  background-color: var(--secondary);
+  padding: 0 0 20px 0;  
+}
+
+
+.resumeHeader{
+  display: flex;
+  flex-direction: row;
+}
+
+.resumeHeader{
+  color: var(--primary);
+  font-weight: bold;
+  font-size: 2vw;
+  padding: 10px 50px;
+}
+.resumeFlex{
+  display: flex;
+  flex-direction: row;
+  width: 100%;
+  justify-content: space-around;
+}
+
+.resumeFlex__education{
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  background-color: #75FF00;
+  border-radius: 25px;
+  padding: 15px 15px;
+  font-weight: bold;
+  color: var(--primary);
+}
+
+.skillsDiv{
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+}
+
+.skillsDiv p{
+  color: var(--primary);
+  width: 50px;
+}
+
+.skillsDiv__elements{
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  width: 90%;
+  height: 100%;
+  gap: 25px;
+}
+
+.skillsDiv__slider{
+  background-color: #75FF00;
+  transition: background-color 0.5s ease;
+  height: 10px;
+  width: 40vw;
+  border-radius: 20px;
+}
+
+.skillsDiv__number{
+  display: inline-block;
+  width: 30%;
+  font-weight: bold;
+}
+
+.skillsDiv__title{
+  font-weight: bold;
+}
+
+.sliderWidth {
+  background-color: var(--primary);
+  height: 100%;
+  border-radius: 20px;
+}
+
+.skillsDiv__flexDiv{
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  height: 40px;
+}
+
+.skillsDiv__flexDiv p{
+  width: 90%;
+}
+
+
+.contact{
+  height: 100%;
+  background-color: var(--primary);
+  height: 500px;
+  transition: 0.5s ease;
+}
+
+
 @media (max-width: 1200px){
   .navWrapper{
     display: none;
@@ -367,9 +458,38 @@ div.slick-track{
     font-size: 5vw;
   }
 
+  .resumeHeader h1{
+    font-size: 5vw;
+  }
+
   .workHeader span{
     font-size: 2vw;
   }
 
+  .resumeHeader{
+    color: var(--primary);
+    font-weight: bold;
+    font-size: 2vw;
+    padding: 10px 0;
+    width: 100%;
+  }
+
+  .resumeFlex__education{
+    display: flex;
+    width: 90%;
+    margin-left: 5%;
+    justify-content: center;
+  }
+
+  .skillsDiv__slider{
+    width: 80vw;
+  }
   
+  .resumeFlex{
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    gap: 20px;
+    justify-content: space-around;
+  }
 }

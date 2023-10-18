@@ -20,6 +20,8 @@ import video4 from '../../public/video4.mp4'
 
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
+import AnimateNumber from '@/reusableComponents/AnimateNumber'
+import { useInView } from 'react-intersection-observer'
 
 export default function Home() {
 
@@ -160,7 +162,16 @@ export default function Home() {
   const handlePrev = () => {
     sliderRef.current.slickPrev();
   };
-  
+
+  const variants = {
+    visible : {opacity: 1, x:0},
+    hidden : {opacity: 0, x: 50},
+  };
+
+  const { ref: ref1, inView: inView1 } = useInView({
+    threshold: 0.5,
+    triggerOnce: true,
+  })
 
   return (
     <>
@@ -329,7 +340,144 @@ export default function Home() {
       </section>
 
       <section className='resume' id='resume'>
+        <div className='resumeHeader'>
+          <h1 ref={ref1}>Education & Skills</h1>
+        </div>
+
+        <motion.div className='resumeFlex' initial="hidden" animate={inView1 ? 'visible' : 'hidden'} variants={variants} transition={{ duration: 0.5, ease: "easeOut" }}>
+          <div className='resumeFlex__education'>
+            <div>
+              <p>Oct.2022 - Present</p>
+              <p>Studying Biology</p>
+              <p>University of Agronomic Sciences and Veterinary Medicine</p>
+            </div>
+            
+            <div>
+              <p>Oct.2023 - Present</p>
+              <p>Studying Marketing</p>
+              <p>Romanian-American University</p>
+            </div>
+            
+            <div>
+              <p>Oct.2022 - Oct.2023</p>
+              <p>Studied Digital Marketing</p>
+              <p>DallesGO Courses</p>
+            </div>
+            
+            <div>
+              <p>Jan.2023 - July.2023</p>
+              <p>Studied E-commerce</p>
+              <p>DallesGO Courses</p>
+            </div>
+            
+            <div>
+              <p>Sep.2022 - Dec.2022</p>
+              <p>Studied Social Media Content Creator</p>
+              <p>DallesGO Courses</p>
+            </div>
+
+
+          </div>
+
+          <div className='resumeFlex__skills'>
+            
+          <div className='skillsDiv'>
+        <div className='skillsDiv__elements'>
+          <p className='skillsDiv__number'>{AnimateNumber(100)}%</p>
+          <div className='skillsDiv__flexDiv'>
+          <p className='skillsDiv__title'>Facebook ADS</p>
+          <div className='skillsDiv__slider'>
+              <motion.div
+              className='sliderWidth'
+              animate={{width: inView1 ? '100%' : '0%'}}
+              initial={{width: '0%'}}
+              transition={{duration: 1.5}}
+              ></motion.div>
+          </div>
+          </div>
+        </div>
         
+        <div className='skillsDiv__elements'>
+          <p className='skillsDiv__number'>{AnimateNumber(100)}%</p>
+          <div className='skillsDiv__flexDiv'>
+          <p className='skillsDiv__title'>Google ADS</p>
+          <div className='skillsDiv__slider'>
+              <motion.div
+              className='sliderWidth'
+              animate={{width: inView1 ? '100%' : '0%'}}
+              initial={{width: '0%'}}
+              transition={{duration: 1.5}}
+              ></motion.div>
+          </div>
+          </div>
+        </div>
+        
+        <div className='skillsDiv__elements'>
+          <p className='skillsDiv__number'>{AnimateNumber(90)}%</p>
+          <div className='skillsDiv__flexDiv'>
+          <p className='skillsDiv__title'>Videography</p>
+          <div className='skillsDiv__slider'>
+              <motion.div
+              className='sliderWidth'
+              animate={{width: inView1 ? '90%' : '0%'}}
+              initial={{width: '0%'}}
+              transition={{duration: 1.5}}
+              ></motion.div>
+          </div>
+          </div>
+        </div>
+        
+        <div className='skillsDiv__elements'>
+          <p className='skillsDiv__number'>{AnimateNumber(90)}%</p>
+          <div className='skillsDiv__flexDiv'>
+          <p className='skillsDiv__title'>Editing Photo/Video</p>
+          <div className='skillsDiv__slider'>
+              <motion.div
+              className='sliderWidth'
+              animate={{width: inView1 ? '90%' : '0%'}}
+              initial={{width: '0%'}}
+              transition={{duration: 1.5}}
+              ></motion.div>
+          </div>
+          </div>
+        </div>
+
+        <div className='skillsDiv__elements'>
+          <p className='skillsDiv__number'>{AnimateNumber(80)}%</p>
+          <div className='skillsDiv__flexDiv'>
+          <p className='skillsDiv__title'>Photography</p>
+          <div className='skillsDiv__slider'>
+              <motion.div
+              className='sliderWidth'
+              animate={{width: inView1 ? '80%' : '0%'}}
+              initial={{width: '0%'}}
+              transition={{duration: 1.5}}
+              ></motion.div>
+          </div>
+          </div>
+        </div>
+        
+        <div className='skillsDiv__elements'>
+          <p className='skillsDiv__number'>{AnimateNumber(70)}%</p>
+          <div className='skillsDiv__flexDiv'>
+          <p className='skillsDiv__title'>SEO</p>
+          <div className='skillsDiv__slider'>
+              <motion.div
+              className='sliderWidth'
+              animate={{width: inView1 ? '70%' : '0%'}}
+              initial={{width: '0%'}}
+              transition={{duration: 1.5}}
+              ></motion.div>
+          </div>
+          </div>
+        </div>
+
+        </div>
+
+          </div>
+
+
+        </motion.div>
       </section>
       
 
