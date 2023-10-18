@@ -1,12 +1,14 @@
 import { PiHouseFill } from 'react-icons/pi'
-import {BsLightbulbFill, BsLightbulb} from 'react-icons/bs'
+import {BsLightbulbFill, BsLightbulb, BsFillPinMapFill} from 'react-icons/bs'
 import {AiOutlineArrowRight, AiOutlineArrowLeft} from 'react-icons/ai'
 import Image from 'next/image' 
 import photo from '../publicResources/pozaGf.svg'
 import pozaCerc from '../publicResources/Asset1.svg'
 import { useEffect, useRef, useState } from 'react'
 import { motion, AnimatePresence } from 'framer-motion'
-import {AiOutlineInstagram, AiFillLinkedin} from 'react-icons/ai' 
+import {AiOutlineInstagram, AiFillLinkedin} from 'react-icons/ai'
+import {FiMail} from 'react-icons/fi' 
+import {BiPhoneCall} from 'react-icons/bi' 
 import {FaTiktok} from 'react-icons/fa' 
 import Link from 'next/link'
 import Slider from 'react-slick'
@@ -22,6 +24,8 @@ import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
 import AnimateNumber from '@/reusableComponents/AnimateNumber'
 import { useInView } from 'react-intersection-observer'
+
+import emailjs from 'emailjs-com'
 
 export default function Home() {
 
@@ -172,6 +176,36 @@ export default function Home() {
     threshold: 0.5,
     triggerOnce: true,
   })
+
+  const [name, setName] = useState('')
+  const [email, setEmail] = useState('')
+  const [subject, setSubject] = useState('')
+  const [text, setText] = useState('')
+
+  function onChangeName(event) {
+    setName(event.target.value)
+  }
+
+  function onChangeEmail(event){
+    setEmail(event.target.value)
+  }
+
+  function onChangeSubject(event){
+    setSubject(event.target.value)
+  }
+
+  function onChangeText(event){
+    setText(event.target.value)
+  }
+
+  const sendEmail = () => {
+    emailjs.send('service_dj8nqhp', 'template_7ypz9t1', {
+      subject: subject,
+      fromName: name,
+      fromEmail: email,
+      message: text
+    }, 'nbISCJZ6t9bgrOD1f')
+  }
 
   return (
     <>
@@ -482,7 +516,60 @@ export default function Home() {
       
 
       <section className='contact' id='contact'>
-        
+        <div className='contactHeader'>
+          <h1>Contact me!</h1>
+          <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d467.6671151670515!2d26.14054986334789!3d44.415803951511364!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x40b1feeb9bafa12d%3A0x7df67b912179f52c!2zU3RyYWRhIFLDom1uaWN1IFbDomxjZWEgMTksIEJ1Y3VyZciZdGk!5e0!3m2!1sen!2sro!4v1697654067560!5m2!1sen!2sro" width="100%" height="450" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+        </div>
+
+        <div className='inTouchFlex'>
+          <div className='inTouchFlex__anchors'>
+            <p>Get in touch with me</p>
+            <div className='inTouchFlex__anchors__anchor'>
+              <BsFillPinMapFill/> <Link href={'https://maps.app.goo.gl/4T8tPHU1GBdgwRv76'}> Str. Ramnicu Valcea 19</Link> 
+            </div>
+
+            <div className='inTouchFlex__anchors__anchor'>
+              <FiMail/> <Link href={'mailto:carla.grigorescu@yahoo.com'}>carla.grigorescu@yahoo.com</Link>
+            </div>
+
+            <div className='inTouchFlex__anchors__anchor'>
+              <BiPhoneCall/> <Link href={'tel:+40773359168'}>+40773359168</Link>
+            </div>
+
+          </div>
+
+          <div className='contactForm'>
+            <div className='contactForm__nameEmail'>
+                <div className="reviewInputBoxes">
+                  <input id="text" type="text" required onChange={onChangeName}></input>
+                  <span>Name</span>
+                </div>
+
+                <div className="reviewInputBoxes">
+                  <input id="text" type="text" required onChange={onChangeEmail}></input>
+                  <span>Email</span>
+                </div>
+            </div>
+
+            <div className="reviewInputBoxes">
+              <input id="text" type="text" required onChange={onChangeSubject}></input>
+              <span>Subject</span>
+            </div>
+
+            <div className='textAreaBox'>
+              <textarea id='textarea' name='textarea' rows={4} required onChange={onChangeText}></textarea>
+              <span>Text</span>
+            </div>
+
+            <div className='submitFormButton'>
+              <button onClick={sendEmail}>Send Message!</button>
+            </div>
+
+            </div>
+
+        </div>
+
+
       </section>
       </section>
     </>

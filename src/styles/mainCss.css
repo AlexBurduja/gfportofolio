@@ -407,10 +407,171 @@ div.slick-track{
 .contact{
   height: 100%;
   background-color: var(--primary);
-  height: 500px;
   transition: 0.5s ease;
 }
 
+.contactHeader h1{
+  padding: 10px 50px;
+  font-size: 2vw;
+  color: var(--secondary);
+}
+
+.inTouchFlex{
+  display: flex;
+  justify-content: space-around;
+  gap: 20px;
+  padding: 20px 0;
+}
+
+.inTouchFlex__anchors{
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.inTouchFlex__anchors p{
+  font-size: 45px;
+  color: var(--secondary);
+}
+
+.inTouchFlex__anchors__anchor{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+}
+
+.inTouchFlex__anchors__anchor a{
+  font-size: 25px;
+  text-decoration: none;
+  color: var(--secondary);
+  border-bottom: 2px solid #75FF00;
+  cursor: pointer;
+  transition: 0.3s ease;
+}
+
+.inTouchFlex__anchors__anchor svg{
+  color: #75FF00;
+  font-size: 30px;
+}
+
+.inTouchFlex__anchors__anchor a:hover{
+  color: #75FF00;
+}
+
+.contactForm{
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  width: 700px;
+}
+
+.contactForm__nameEmail{
+  display: flex;
+  gap: 5px;
+}
+
+.reviewInputBoxes{
+position: relative;
+width: 100%;
+}
+
+.reviewInputBoxes input{
+width: 100%;
+height: 50px;
+padding: 10px;
+border: 1px solid black;
+background-color: #fff;
+border-radius: 5px;
+color: black;
+outline: none;
+font-size: 1em;
+}
+
+.reviewInputBoxes span{
+position: absolute;
+left: 0;
+padding: 10px;
+pointer-events: none;
+font-size: 1.5em;
+color: black;
+text-transform: uppercase;
+transition: 100ms ease-in;
+}
+
+.reviewInputBoxes input:valid ~ span,
+.reviewInputBoxes input:focus ~ span {
+color: black;
+background-color: white;
+border-left: 1px solid black;
+border-right: 1px solid black;
+border-bottom: 1px solid black;
+border-top: 1px solid black;
+font-weight: 500;
+transform: translateX(10px) translateY(-7px);
+padding: 0px 10px;
+font-size: 1em;
+}
+
+.textAreaBox{
+  position: relative;
+  width: 100%;
+}
+
+
+.textAreaBox textarea{
+  width: 100%;
+  padding: 15px 0px 0px 10px;
+  border: 1px solid black;
+  background-color: #fff;
+  border-radius: 5px;
+  color: black;
+  outline: none;
+  font-size: 1em;
+}
+
+.textAreaBox span{
+  position: absolute;
+  left: 0;
+  padding: 10px;
+  pointer-events: none;
+  font-size: 1.5em;
+  color: black;
+  text-transform: uppercase;
+  transition: 100ms ease-in;
+}
+
+.textAreaBox textarea:valid ~ span,
+.textAreaBox textarea:focus ~ span {
+  color: black;
+  background-color: white;
+  border-left: 1px solid black;
+  border-right: 1px solid black;
+  border-bottom: 1px solid black;
+  border-top: 1px solid black;
+  font-weight: 500;
+  transform: translateX(10px) translateY(-7px);
+  padding: 0px 10px;
+  font-size: 1em;
+}
+
+.submitFormButton button{
+  color: var(--third);
+  width: 100%;
+  height: 40px;
+  border-radius: 20px;
+  background-color: transparent;
+  border: 2px solid var(--secondary);
+  font-weight: bold;
+  cursor: pointer;
+  transition: 0.5s ease-out;
+}
+
+.submitFormButton button:hover{
+  color: var(--secondary);
+  border: 2px solid var(--secondary);
+  transition: 0.5s ease-in;
+}
 
 @media (max-width: 1200px){
   .navWrapper{
@@ -491,5 +652,28 @@ div.slick-track{
     width: 100%;
     gap: 20px;
     justify-content: space-around;
+  }
+
+  .inTouchFlex{
+    flex-direction: column;
+  }
+
+  .contactForm{
+    width: 90%;
+    margin-left: 5%;
+    font-size: 15px;
+  }
+
+  .inTouchFlex__anchors p{
+    text-align: center;
+    font-size: 25px;
+  }
+
+  .inTouchFlex__anchors__anchor a{
+    font-size: clamp(1rem, 5vw, 2rem);
+  }
+
+  .inTouchFlex__anchors__anchor svg{
+    font-size: clamp(1.5rem, 6vw, 2.5rem);
   }
 }
