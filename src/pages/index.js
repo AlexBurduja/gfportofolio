@@ -16,6 +16,7 @@ const ReactPlayer = dynamic(() => import('react-player'), { ssr: false });
 import video1 from '../../public/video1.mp4'
 import video2 from '../../public/video2.mp4'
 import video3 from '../../public/video3.mp4'
+import video4 from '../../public/video4.mp4'
 
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
@@ -81,8 +82,6 @@ export default function Home() {
       const contactSection = document.getElementById('contact');
       const currentPosition = window.scrollY;
 
-      console.log(currentPosition)
-      console.log(activeSection)
 
       if (homeSection && aboutSection && resumeSection && workSection && contactSection) {
         const homeBottom = homeSection.offsetTop + homeSection.offsetHeight;
@@ -113,13 +112,6 @@ export default function Home() {
     };
   }, [activeSection]);
   
-
-  const [isServer, setIsServer] = useState(true);
-
-  useEffect(() => {
-    setIsServer(false);
-  }, []);
-
   const sliderRef = useRef(null);
 
   useEffect(() => {
@@ -131,17 +123,34 @@ export default function Home() {
   const videos = [
     { url: video1 },
     { url: video2 },
-    { url: video3 }
+    { url: video3 },
+    { url: video4 }
+
     // Add more videos as needed
   ];
 
   const settings = {
     infinite: true,
-    slidesToShow: 1,
     slidesToScroll: 1,
-    centerMode: true,
-    centerPadding: '0', // No padding on the sides of the centered slide
-    arrows:false
+    arrows: false,
+    slidesToShow: 3,
+    responsive: [
+      {
+        breakpoint: 1200,
+        settings: {
+          slidesToShow: 2,
+          slidesToScroll: 2,
+          initialSlide: 2
+        }
+      },
+      {
+        breakpoint: 800,
+        settings: {
+          slidesToShow: 1,
+          slidesToScroll: 1
+        }
+      }
+    ]
   };
 
   const handleNext = () => {
