@@ -19,6 +19,8 @@ import video1 from '../../public/video1.mp4'
 import video2 from '../../public/video2.mp4'
 import video3 from '../../public/video3.mp4'
 import video4 from '../../public/video4.mp4'
+import video5 from '../../public/video5.mp4'
+import video6 from '../../public/video6.mp4'
 
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
@@ -132,7 +134,10 @@ export default function Home() {
     { url: video1 },
     { url: video2 },
     { url: video3 },
-    { url: video4 }
+    { url: video4 },
+    { url: video5 },
+    { url: video6 },
+
 
     // Add more videos as needed
   ];
