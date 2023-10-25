@@ -38,11 +38,13 @@ export default function Home() {
   useEffect(() => {
     const interval = setInterval(() => {
       setWordIndex((index) => (index + 1) % words.length)
-    }, 3000)
+    }, 2000)
 
     return () => clearInterval(interval)
   }, [words.length])
 
+  const currentWord = words[wordIndex]
+  
   function changeColors(){
     const root = document.documentElement
 
@@ -58,7 +60,7 @@ export default function Home() {
     }
   }
 
-  const currentWord = words[wordIndex]
+
 
   const [bulb, setBulb] = useState(true)
 
@@ -311,7 +313,7 @@ export default function Home() {
         </div>
 
           <div>
-            <p>I am a very creative person and i strive to create marketing campaigns that will result in a big impact.</p>
+            <p>I consider myself a highly creative individual, and my passion lies in developing marketing campaigns that make a substantial impact..</p>
           </div>
 
         </div>
@@ -358,7 +360,7 @@ export default function Home() {
         <div className='about__biography'>
           <div className='about__biography__biography'>
             <h1>Biography</h1>
-            <p>Salut, eu sunt Carla Gigorescu si sunt mic, gras, frumos, dragut, amuzant, mic din nou si cel mai talentat mic. Sunt in anul 2 de facultate desi eu am 2 ani inca. Sper ca o sa ma angajati peste tot pentru ca eu sunt mic si voinic. Fac papa buna si sunt mic.</p>
+            <p>Hey there, I&apos;m Carla Grigorescu. Marketing and Social Media are my passions. At 19, I&apos;m navigating all the platforms, absorbing everything that could add some style to my campaigns. Let&apos;s connect and chat about the latest buzz!</p>
           </div>
 
           <div className='about__biography__informations'>
@@ -552,7 +554,7 @@ export default function Home() {
       <section className='contact' id='contact'>
         <div className='contactHeader'>
           <h1>Contact me!</h1>
-          <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d467.6671151670515!2d26.14054986334789!3d44.415803951511364!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x40b1feeb9bafa12d%3A0x7df67b912179f52c!2zU3RyYWRhIFLDom1uaWN1IFbDomxjZWEgMTksIEJ1Y3VyZciZdGk!5e0!3m2!1sen!2sro!4v1697654067560!5m2!1sen!2sro" width="100%" height="450" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+          <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d467.6671151670515!2d26.14054986334789!3d44.415803951511364!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x40b1feeb9bafa12d%3A0x7df67b912179f52c!2zU3RyYWRhIFLDom1uaWN1IFbDomxjZWEgMTksIEJ1Y3VyZciZdGk!5e0!3m2!1sen!2sro!4v1697654067560!5m2!1sen!2sro" width="100%" height="450" allowfullscreen="" loading="lazy" referrerPolicy="no-referrer-when-downgrade"></iframe>
         </div>
 
         <div className='inTouchFlex'>
