@@ -133,12 +133,12 @@ export default function Home() {
   }, []);
   
   const videos = [
-    { url: video1 },
     { url: video2 },
     { url: video3 },
     { url: video4 },
     { url: video5 },
     { url: video6 },
+    { url: video7 },
 
 
     // Add more videos as needed
