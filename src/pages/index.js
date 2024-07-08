@@ -224,6 +224,7 @@ export default function Home() {
     
   };
 
+
   return (
     <>
     <section className='wholeSite'>
@@ -331,7 +332,7 @@ export default function Home() {
             <div className='imageIcons'>
               <Link href={'https://www.instagram.com/carla_grigorescu2'} target='_blank' className='icon'><AiOutlineInstagram/></Link>
               <Link href={'https://www.linkedin.com/in/carla-grigorescu-75a856286/'} target='_blank' className='icon'><AiFillLinkedin /></Link>
-              <Link href={'https://www.tiktok.com/@carlagrigorescu2'} target='_blank' className='icon'><FaTiktok /></Link>
+              <Link href={'https://www.tiktok.com/@carla_grigorescu2'} target='_blank' className='icon'><FaTiktok /></Link>
             </div>
           
           </div>
