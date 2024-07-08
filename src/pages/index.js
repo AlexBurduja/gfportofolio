@@ -21,7 +21,7 @@ import video3 from '../../public/video3.mov'
 import video4 from '../../public/video4.mov'
 import video5 from '../../public/video5.mov'
 import video6 from '../../public/video6.mov'
-import video6 from '../../public/video7.mov'
+import video7 from '../../public/video7.mov'
 
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
